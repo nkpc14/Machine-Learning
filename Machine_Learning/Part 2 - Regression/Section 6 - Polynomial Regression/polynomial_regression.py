@@ -29,7 +29,7 @@ lin_reg.fit(X, y)
 from sklearn.preprocessing import PolynomialFeatures
 """ poly_reg automatically creates columns of 1's to include the constant of zero in MLR """
 poly_reg = PolynomialFeatures(degree = 4) ##this will create x^4 ....default=2
-X_poly = poly_reg.fit_transform(X) ## since we are transforming X in to X_poly
+X_poly = poly_reg.fit_transform(X) ## since we are transforming X in to X_poly.
 poly_reg.fit(X_poly, y)
 lin_reg_2 = LinearRegression()
 lin_reg_2.fit(X_poly, y)
@@ -44,6 +44,7 @@ plt.show()
 
 # Visualising the Polynomial Regression results
 plt.scatter(X, y, color = 'red')
+""" we are using poly_reg.fit_transform(X) to generilise plot for any matrix of feature X """
 plt.plot(X, lin_reg_2.predict(poly_reg.fit_transform(X)), color = 'blue')
 plt.title('Truth or Bluff (Polynomial Regression)')
 plt.xlabel('Position level')
